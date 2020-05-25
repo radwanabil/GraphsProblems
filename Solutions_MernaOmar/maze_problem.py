@@ -52,21 +52,19 @@ class Maze:
             return
 
 
-m = Maze(4)
-m.set_maze(0, 0, 0)
-m.set_maze(0, 1, 1)
-m.set_maze(0, 2, 1)
-m.set_maze(0, 3, 0)
-m.set_maze(1, 0, 0)
-m.set_maze(1, 1, 0)
-m.set_maze(1, 2, 1)
-m.set_maze(1, 3, 0)
-m.set_maze(2, 0, 0)
-m.set_maze(2, 1, 0)
-m.set_maze(2, 2, 0)
-m.set_maze(2, 3, 0)
-m.set_maze(3, 0, 0)
-m.set_maze(3, 1, 1)
-m.set_maze(3, 2, 1)
-m.set_maze(3, 3, 0)
-m.solve_maze()
+
+maze = int(input( "please enter N: "))
+
+
+m = Maze(maze)
+print("please enter values for maze, row by row: ")
+for i in range(maze):
+  inp= input()
+  for j in range(maze):
+      value = int(inp[j])
+
+      m.set_maze(i,j,value)
+
+
+
+m.solve_maze() 
