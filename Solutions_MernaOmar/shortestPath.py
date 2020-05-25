@@ -1,5 +1,6 @@
 import collections
 import heapq
+import sys
 
 
 def shortestPath(edges, source, destination,M):
@@ -58,49 +59,62 @@ def addEdges(edges,v1,v2,hours,cost):
 
 
 M = int(input("Please Enter Amount M "))
-vertices = int(input("Please Enter Number Of Citites "))
+vertices = int(input("Please Enter Number Of Cities "))
 routes = int(input("Please Enter Number Of Routes "))
 edges=[]
 cities=[]
-x=1
-while x ==1:
-    for x in range(routes) :
 
-        v1 = int(input("enter the source  "))
+
+for d in range(routes) :
+        print("\nAdding New Route: ")
+        v1 = int(input("Please Enter The Source  "))
         if v1 not in cities:
             if len(cities) != vertices:
                 cities.append(v1)
 
             else:
-                print("You have exceeded the specified number for cities")
+                print("You Have Exceeded The Specified Number For Cities")
                 break
 
-        v2 = int(input("enter the destination "))
+        v2 = int(input("Please Enter The Destination "))
+
         if v2 not in cities:
             if len(cities) != vertices:
                 cities.append(v2)
 
             else:
-                  print("You have exceeded the specified number for cities")
+                  print("You Have Exceeded The Specified Number For Cities")
                   break
 
 
         while v2 == v1 :
-            print(" the estination can't be also the source  ")
-            v1 = int(input("enter the source  "))
-            v2 = int(input("enter the destination "))
+            print("WARNING :  The Destination Can't Be Also The Source  ")
+            v1 = int(input("Please Enter The Source  "))
+            v2 = int(input("Please Enter The Destination "))
 
-        hours = int(input("enter the time "))
-        cost = int(input("enter the cost "))
+        hours = int(input("Please Enter The time "))
+        cost = int(input("Please Enter The cost "))
         addEdges(edges,v1,v2,hours,cost)
-        x = + 1
-    source = int(input("Please Enter Source City"))
-    dest = int(input("Please Enter Destination City"))
-    print("Find the shortest path between cities")
+        d = + 1
+x=1
+while x==1:
+        source = int(input("Please Enter Source City Of The Journey"))
+        dest = int(input("Please Enter Destination City Of The Journey"))
+        while source == dest:
+                print("WARNING :  The Destination Can't Be Also The Source  ")
+                v1 = int(input("Please Enter Source City Of The Journey"))
+                v2 = int(input("Please Enter Destination CityOf The Journey "))
+        print(shortestPath(edges, source, dest,M))
 
-    print(shortestPath(edges, source, dest,M))
+        x= input("Do You want to check another path? \nYes = Enter 1\nNo= Enter 0")
+        while (x is not '0' and x is not  '1'):
+            x = input("WARNING :  Invalid Value, Do You Want To Check Another Path? \nYes = Enter 1\n No = Enter 0")
 
- 
+
+
+
+
+
 
 
 
